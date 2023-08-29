@@ -16,13 +16,15 @@ Let's declare a string that we're going to be operating on in the course of this
 val input = "Hello, world, hello."
 ```
 
-Then let's create a couple of patterns, one using the `RegEx` constructor and another using the `String.toRegex` method:
+Then let's create a couple of patterns, one using the `String.toRegex` method:
 
 ```kotlin
 val patternWorld = "world".toRegex()
+```
 
-// The second pattern uses the case-insensitive option to match words with capital letters as well.
-// For all available options see https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex-option/
+And another using the `RegEx` constructor. This pattern uses the case-insensitive [option](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex-option/) to match words with capital letters as well.
+
+```kotlin
 val patternHello = Regex("hello", setOf(RegexOption.IGNORE_CASE))
 ```
 
@@ -103,13 +105,14 @@ val patternWord = Regex("(\\wello), (\\world)")
 
 val matchGroups = patternWord.find(input)
 
-// We're looking for the group[1] value since group[0] always corresponds to the entire matched string.
+// We're looking for the group[1] value since group[0] always corresponds
+// to the entire matched string.
 println("The first group found: ${matchGroups!!.groups[1]?.value}")
 ```
 
 Since Kotlin 1.9.0 you can also define named groups and retrieve them without juggling the index:
 
-```
+```kotlin
 val patternWord = Regex("(?<hi>\\wello), (?<who>\\world)")
 
 val matchGroups = patternWord.find(input)
@@ -126,8 +129,8 @@ The `Regex` class also provides methods:
 * for more specific search within the string,
 * for converting the created pattern to an object of the Java `Pattern` class.
 
-Try it out — the exhaustive description of the class, as always, is available in the [standard library reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/). Let us know if it's everything you dreamed of in that weird nightmare you had about regular expressions.
+Try it out — the exhaustive description of the class is available in the [standard library reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/). Let us know if it's everything you dreamed of in that weird nightmare you had about regular expressions.
 
 ## Example sources
 
-All of the examples above are available on Github: 
+All of the examples above are available on Github: https://github.com/zamulla/jet-test/blob/main/code-examples/regex.kt
