@@ -39,7 +39,7 @@ sidebar_position: 4
 
        
        * build.gradle.kts (Reload All Gradle Projects)
-         * [build.gradle.kts](build.gradle.kts)
+         * [build.gradle.kts]
    * Structure of the source code:
      * kotlin/main.kt
        * the main() function renders the Composable of our choosing
