@@ -15,7 +15,7 @@ The app that we are going to run is going to be a single page with a click count
 
 You'll need an IDE and an installed JDK:
 * **Intellij IDEA**. While you can use any environment suitable for Gradle projects, this tutorial demonstrates specifically how the project would work in IDEA.
-* JDK 11 or newer. Whatever your environment, it should have at least JDK 11 installed or integrated.
+* **JDK 11 or newer**. Whatever your environment, it should have at least JDK 11 installed or integrated.
 
 ## Let's make a project
 

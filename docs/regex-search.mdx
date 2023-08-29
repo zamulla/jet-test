@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Regex how-to
 
-Regular expressions are a powerful tool for search and replace text manipulations. Kotlin standard library provides classes for implementing your regular expressions logic, and this guide provides some basic usage examples for these classes.
+Regular expressions are a powerful tool for searching within text. Kotlin standard library provides classes for implementing your regular expressions logic, and this guide provides some basic usage examples for these classes.
 
 We'll assume that you are familiar with regular expression syntax in general. The how-to only covers Kotlin implementation specifically.
 
@@ -65,7 +65,7 @@ else {
 }
 ```
 
-The `MatchResult` class also has the `next()` method which allows you to get the next match for the same string/pattern pair:
+The `MatchResult` class also has the `next()` method, which allows you to get the next match for the same string/pattern pair:
 
 ```kotlin
 match = match?.next()
@@ -136,7 +136,7 @@ The first 'hi' group: Hello
 The `Regex` class also provides methods:
 
 * for replacing found matches and splitting the input string around them,
-* for more specific search within the string,
+* for a more specific search within the string,
 * for converting the created pattern to an object of the Java `Pattern` class.
 
 Try it out — the exhaustive description of the class is available in the [standard library reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/). Let us know if it's everything you dreamed of in that weird nightmare you had about regular expressions.
