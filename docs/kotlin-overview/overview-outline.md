@@ -2,11 +2,15 @@
 sidebar_position: 2
 ---
 
-# Outline of the main Overview document
+# Outline for the main document of the overview section
 
-This is the outline for The Overview page that was mentioned in the high-level description of the section rework.
+This is the outline for The Overview page that was mentioned in the [high-level description](./overview.md) of the section rework.
 
-* Intro: the “Kotlin is a programming language which...” paragraph, facts and goals in the broadest terms. I'd cut and paste the first paragraph from the [Get started](https://kotlinlang.org/docs/getting-started.html) page.
+Title of the page is “Language overview”.
+
+## Intro
+
+* Intro paragraphs: the “Kotlin is a programming language which...” paragraph, facts and goals in the broadest terms. I'd cut and paste the first paragraph from the [Get started](https://kotlinlang.org/docs/getting-started.html) page, maybe expanding on it.
   * (Aside: the Get started page could use something more specific as an intro, which would lead into the specific cases later on. Also it's kind of weird to send the reader off to take the tour of the language without letting him get started. I would make the send-off softer, without the huge banner, and with a better reason than “why not”, because putting the *fun* in *fun*damentals can be a little clearer.)
 * Advantages: the list of universal advantages of Kotlin as a language: mature, boilerplate-free, Java-compatible etc.
 

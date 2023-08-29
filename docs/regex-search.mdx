@@ -8,7 +8,7 @@ Regular expressions are a powerful tool for search and replace text manipulation
 
 We'll assume that you are familiar with regular expression syntax in general. The how-to only covers Kotlin implementation specifically.
 
-All of the source code presented below is [available on GitHub](https://github.com/zamulla/jet-test/blob/main/code-examples/regex.kt).
+All of the source code presented below is [available on GitHub](https://github.com/zamulla/jet-test/blob/main/code-examples/regex.kt) as a single file ready to be run — just create a Kotlin project in IDEA.
 
 
 ## Setup
@@ -30,6 +30,7 @@ And another, using the `RegEx` constructor:
 ```kotlin
 val patternHello = Regex("hello", setOf(RegexOption.IGNORE_CASE))
 ```
+
 This pattern uses the case-insensitive [option](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex-option/) to match words with capital letters as well.
 
 Now you're ready to get matching.
