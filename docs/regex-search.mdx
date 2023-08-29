@@ -6,7 +6,10 @@ sidebar_position: 3
 
 Regular expressions are a powerful tool for search and replace text manipulations. Kotlin standard library provides classes for implementing your regular expressions logic, and this guide provides some basic usage examples for these classes.
 
-We'll assume that you are familiar with regular expression syntax in general. The guide only covers Kotlin implementation specifically.
+We'll assume that you are familiar with regular expression syntax in general. The how-to only covers Kotlin implementation specifically.
+
+All of the source code presented below is [available on GitHub](https://github.com/zamulla/jet-test/blob/main/code-examples/regex.kt).
+
 
 ## Setup
 
@@ -22,11 +25,12 @@ Then let's create a couple of patterns, one using the `String.toRegex` method:
 val patternWorld = "world".toRegex()
 ```
 
-And another using the `RegEx` constructor. This pattern uses the case-insensitive [option](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex-option/) to match words with capital letters as well.
+And another, using the `RegEx` constructor:
 
 ```kotlin
 val patternHello = Regex("hello", setOf(RegexOption.IGNORE_CASE))
 ```
+This pattern uses the case-insensitive [option](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex-option/) to match words with capital letters as well.
 
 Now you're ready to get matching.
 
@@ -94,11 +98,9 @@ All matches found:
 2. "hello" at the position 14..18
 ```
 
-
-
 ## Find groups
 
-Regular expressions are often written using groups — identifiable sections of a pattern. With Kotlin, you can find individual groups within the matches:
+Regular expressions are often written using groups — meaningful sections of a pattern. With Kotlin, you can find individual groups within the matches:
 
 ```kotlin
 val patternWord = Regex("(\\wello), (\\world)")
@@ -110,7 +112,7 @@ val matchGroups = patternWord.find(input)
 println("The first group found: ${matchGroups!!.groups[1]?.value}")
 ```
 
-Since Kotlin 1.9.0 you can also define named groups and retrieve them without juggling the index:
+Since Kotlin 1.9.0 you can also define named groups and retrieve them without juggling the index. Here we named two groups `hi` and `who` within a pattern that matches most of the input sentence:
 
 ```kotlin
 val patternWord = Regex("(?<hi>\\wello), (?<who>\\world)")
@@ -119,6 +121,13 @@ val matchGroups = patternWord.find(input)
 
 println("The first 'who' group: ${matchGroups!!.groups["who"]?.value}")
 println("The first 'hi' group: ${matchGroups.groups["hi"]?.value}")
+```
+
+The result:
+
+```
+The first 'who' group: world
+The first 'hi' group: Hello
 ```
 
 ## ...and more!
@@ -130,7 +139,3 @@ The `Regex` class also provides methods:
 * for converting the created pattern to an object of the Java `Pattern` class.
 
 Try it out — the exhaustive description of the class is available in the [standard library reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/). Let us know if it's everything you dreamed of in that weird nightmare you had about regular expressions.
-
-## Example sources
-
-All of the examples above are available on Github: https://github.com/zamulla/jet-test/blob/main/code-examples/regex.kt

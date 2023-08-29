@@ -14,7 +14,7 @@ So for the first problem, of **new structure**: organize the use cases in a more
 
 High-level description of the content for a language overview:
 
-1. There should be a main page, the overview of the overview. [It constantly bugs me that sections containing other sections in the menu on the left are contentless in Kotlin docs. Almost looks like a platform limitation? Although TeamCity, for instance, can have a top-level [Getting Started](https://www.jetbrains.com/help/teamcity/getting-started-with-teamcity.html) page with its own text.]
+1. There should be a main page, the overview of the overview.
    * In The Overview we can compile the non-platform-specific advantages of using Kotlin (like maturity of the language and and ease of learning, a paragraph each) and link to the following pages with specific advantages, or further into documentation — overview should not explain, it should overview.
    * I made an [outline of The Overview page](overview-outline.md) as the “main document of the Kotlin overview section”.
 2. Add pages for mobile and web development similar to [Kotlin for server side](https://kotlinlang.org/docs/server-overview.html): easy-to-understand benefits of the language for the particular case, then concrete implementations and tools.
