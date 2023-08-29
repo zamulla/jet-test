@@ -1,0 +1,133 @@
+---
+sidebar_position: 3
+---
+
+# Regex how-to
+
+Regular expressions are a powerful tool for search and replace text manipulations. Kotlin standard library provides classes for implementing your regular expressions logic, and this guide provides some basic usage examples for these classes.
+
+We'll assume that you are familiar with regular expression syntax in general. The guide only covers Kotlin implementation specifically.
+
+## Setup
+
+Let's declare a string that we're going to be operating on in the course of this guide:
+
+```kotlin
+val input = "Hello, world, hello."
+```
+
+Then let's create a couple of patterns, one using the `RegEx` constructor and another using the `String.toRegex` method:
+
+```kotlin
+val patternWorld = "world".toRegex()
+
+// The second pattern uses the case-insensitive option to match words with capital letters as well.
+// For all available options see https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex-option/
+val patternHello = Regex("hello", setOf(RegexOption.IGNORE_CASE))
+```
+
+Now you're ready to get matching.
+
+## Is there a match?
+
+The simplest problem is to find out whether the provided input matches a pattern at all. The `containsMatchIn` method returns a boolean value:
+
+```kotlin
+println("Is there a match for \"$patternHello\" in the string \"$input\"?")
+if (patternHello.containsMatchIn(input)) println("Yes!") else println("Nope.")
+```
+
+The result is:
+
+```text
+Is there a match for "hello" in the string "Hello, world, hello."?
+Yes!
+```
+
+## Find a match
+
+To find matches one by one, use the `Regex.find()` method. The result is an object of the `MatchResult` class, which we'll store in the `match` variable. It has a `value` and a `range` — the matched string fragment and the position of this fragment within the input string:
+
+```kotlin
+var match = patternHello.find(input)
+if (match?.value?.isNotEmpty() == true) {
+    println("Found a match: \"${match.value}\" at the position ${match.range}")
+}
+else {
+    println("No matches here.")
+}
+```
+
+The `MatchResult` class also has the `next()` method which allows you to get the next match for the same string/pattern pair:
+
+```kotlin
+match = match?.next()
+```
+
+If you print out the results for both old and new values of the variable, you'll see this in the console:
+
+```text
+Found a match: "Hello" at the position 0..4
+Found a match: "hello" at the position 14..18
+```
+
+## Find all matches
+
+To get all matches found within the text, use the `Regex.findAll()` method. It returns a sequence of `MatchResult` objects:
+
+```kotlin
+val matches = patternHello.findAll(input)
+
+println("All matches found:")
+for ((index, result) in matches.withIndex()) {
+    println("${index+1}. \"${result.value}\" at the position ${result.range}")
+}
+```
+
+Printed out results:
+
+```text
+All matches found:
+1. "Hello" at the position 0..4
+2. "hello" at the position 14..18
+```
+
+
+
+## Find groups
+
+Regular expressions are often written using groups — identifiable sections of a pattern. With Kotlin, you can find individual groups within the matches:
+
+```kotlin
+val patternWord = Regex("(\\wello), (\\world)")
+
+val matchGroups = patternWord.find(input)
+
+// We're looking for the group[1] value since group[0] always corresponds to the entire matched string.
+println("The first group found: ${matchGroups!!.groups[1]?.value}")
+```
+
+Since Kotlin 1.9.0 you can also define named groups and retrieve them without juggling the index:
+
+```
+val patternWord = Regex("(?<hi>\\wello), (?<who>\\world)")
+
+val matchGroups = patternWord.find(input)
+
+println("The first 'who' group: ${matchGroups!!.groups["who"]?.value}")
+println("The first 'hi' group: ${matchGroups.groups["hi"]?.value}")
+```
+
+## ...and more!
+
+The `Regex` class also provides methods:
+
+* for replacing found matches and splitting the input string around them,
+* for more specific search within the string,
+* for converting the created pattern to an object of the Java `Pattern` class.
+
+Try it out — the exhaustive description of the class, as always, is available in the [standard library reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/). Let us know if it's everything you dreamed of in that weird nightmare you had about regular expressions.
+
+## Example sources
+
+All of the examples above are available on Github: 
