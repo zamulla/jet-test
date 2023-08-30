@@ -8,7 +8,7 @@ The Compose HTML library is aimed at producing Kotlin/JS output using the same C
 
 ## The end goal
 
-The app that we are going to run is going to be a single page with a click counter: each press of a button is going to add to a counter displayed above the button. We're not going to persistently store anything: the number of clicks will reset to 0 after each reload.
+The app that we are creating is going to be a single page with a click counter: each press of a button is going to add to a counter displayed above the button. We're not going to persistently store anything, the number of clicks will reset to 0 after each reload.
 
 
 ## What you will need
@@ -28,6 +28,7 @@ You can clone the template from GitHub, or just create a project from scratch.
 * If you would like to create the project from scratch, in IDEA, for example, you can:
   1. Select **File → New → Project**.
   2. Choose Kotlin as the language and Gradle as the build system, then press **Create**. We'll go over the code in the next section.
+     ![new-project](./img/idea-new-project.png)
 
 ## Structure of the source code
 
