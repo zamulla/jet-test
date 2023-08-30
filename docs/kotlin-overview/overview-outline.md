@@ -16,7 +16,7 @@ The title of the page is “Language overview”.
 
 ## Kotlin is useful for any project
 
-The list of use cases that we [compiled earlier](./overview.md#use-cases): mobile, web, server, data science, competitive programming, with links to the corresponding pages.
+The list of use cases that we [compiled earlier](./overview.md#desc): mobile, web, server, data science, competitive programming, with links to the corresponding pages.
 
 ## Kotlin has a robust standard library
 
