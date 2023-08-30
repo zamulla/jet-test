@@ -101,21 +101,21 @@ Make sure you reload your Gradle project after changing the configuration files 
 ### Source code
 
 The source code for the app consists of two files:
-* an HTML file that is going to be used to embed the JS code,
-* a Kotlin file describing the logic and the Composable that we are using.
+* an HTML file that is going to be used to embed the JS code (should be put in the `resources.srcDir` folder specified in `build.gradle.kts`),
+* a Kotlin file describing the logic and the Composable that we are using (should be put in the `kotlin.srcDir` folder).
 
 The [HTML file](https://github.com/JetBrains/compose-multiplatform-html-library-template/blob/main/src/main/resources/index.html) is describing a very barebones structure, the important parts are these:
 
 ```html
 
-<!-- The id of this element is going to be used to render the Composable. -->
+<!-- Kotlin code is going to refer to this element to render the Composable. -->
 <div id="root"></div>
 
 <!-- The name of the .js file must match the value of rootProject.name in the settings.gradle.kts file. -->
 <script src="compose-multiplatform-html-library-template.js"></script>
 ```
 
-The [Kotlin file](https://github.com/JetBrains/compose-multiplatform-html-library-template/blob/main/src/main/kotlin/main.kt) renders the Composable in the `main()` function and describes the Composable with intuitive syntax:
+The [Kotlin file](https://github.com/JetBrains/compose-multiplatform-html-library-template/blob/main/src/main/kotlin/main.kt) describes the `Body()` Composable and renders it in the `main()` function:
 
 ```kotlin
 fun main() {
@@ -151,8 +151,14 @@ fun Body() {
 
 When everything is in place, make sure you rebuilt the Gradle project to account for changes in configuration, and run it:
 
-   * To build the current version, start the Gradle task **kotlin browser → jsBrowserRun**, or with the command `./gradlew jsBrowserRun` 
-   * To make IDEA watch changes in the files and rebuild the project on the fly, use the command `./gradlew jsBrowserRun --continuous`. You can also modify the Gradle taks in IDEA to make it start like this by default:
+   * To build the current version, start the Gradle task **kotlin browser → jsBrowserRun** in IDEA, or run this shell command:  `./gradlew jsBrowserRun`
+   * To make the build watch changes in the files and rebuild the project on the fly, use the command `./gradlew jsBrowserRun --continuous`. You can also modify the **jsBrowserRun** Gradle task in IDEA to make it start like this by default:
       ![continuous screenshot](./img/gradle-jsbrowser-continuous.png)
 
 ## What's next
+
+Now you have built and run a simple, but complete Kotlin/JS app. If it looks useful, you can explore the Compose HTML further:
+
+* [Style the components of your app](https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials/HTML/Style_Dsl)
+* [Build a more complex UI](https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials/HTML/Building_UI)
+* [Handle events](https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials/HTML/Events_Handling)
