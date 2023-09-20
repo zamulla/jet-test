@@ -8,8 +8,7 @@ The Compose HTML library is aimed at producing Kotlin/JS output using the same C
 
 ## The end goal
 
-The app that we are creating is going to be a single page with a click counter: each press of a button is going to add to a counter displayed above the button. We're not going to persistently store anything, the number of clicks will reset to 0 after each reload.
-
+The app that we are creating is going to be a single page with a click counter: each press of a button is going to add to a counter displayed above the button. We're not going to persistently store anything, the number of clicks will reset to zero after each reload.
 
 ## What you will need
 
@@ -34,7 +33,6 @@ You can clone the template from GitHub, or just create a project from scratch.
 
 Important code that enables the app to run is divided between Gradle configuration and source files.
 
-
 ### Gradle configuration
 
 Make sure you reload your Gradle project after changing the configuration files (in IDEA, open the Gradle panel and press the **Reload All Gradle Projects** button).
@@ -48,9 +46,9 @@ Make sure you reload your Gradle project after changing the configuration files 
   compose.version=1.4.3
   ```
 
-* Gradle settings for the project. Choose the name to set as `rootProject.name` — this is going to be the name of the compiled .js file in the build output:
+* Gradle settings for the project. Choose the name to set as `rootProject.name` – this is going to be the name of the compiled .js file in the build output:
   
-  ```gradle title="settings.gradle.kts"
+  ```gradle title="settings.gradle(.kts)"
   pluginManagement {
       repositories {
           gradlePluginPortal()
@@ -68,7 +66,7 @@ Make sure you reload your Gradle project after changing the configuration files 
 
 * Gradle build script (make sure `kotlin.srcDir` and `resources.srcDir` point to existing folders):
 
-  ```gradle title="build.gradle.kts"
+  ```gradle title="build.gradle(.kts)"
   plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
